@@ -19,3 +19,6 @@ foreach($regIts as $k=>$p){
 echo $count;
 ?>
 ```
+php安装
+./configure --prefix=/root/download/php8 --enable-fpm  --with-curl  --enable-gd --enable-mbstring  --enable-mysqlnd --with-pdo-mysql=mysqlnd
+

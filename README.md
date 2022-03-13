@@ -44,6 +44,20 @@ header("content-type: image/png");
 imagepng($img);
 imagedestroy($img);
 
+php extends study web site
+->https://www.php.cn/php-weizijiaocheng-392678.html
+->https://segmentfault.com/a/1190000007571341
+->https://wiki.php.net/rfc/fast_zpp
+->https://github.com/gaohuia/php-src-comment
+->https://github.com/pangudashu/php7-internal
+->https://qiita.com/d_nishiyama85/items/98f901dcc848a79c81fb
+->https://net-newbie.com/phpext/b-gdb.html
+->https://yangxikun.com/tags.html#PHP%E6%89%A9%E5%B1%95-ref
+->https://net-newbie.com/phpext/7-zval.html#id2
+->https://www.kancloud.cn/nickbai/php7/363323
+->https://blog.csdn.net/rorntuck7/article/details/86307015
+->https://blog.icodef.com/2018/09/25/1508
+
 
 
 

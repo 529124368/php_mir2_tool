@@ -58,6 +58,9 @@ php extends study web site
 ->https://blog.csdn.net/rorntuck7/article/details/86307015
 ->https://blog.icodef.com/2018/09/25/1508
 
+get all static web page
+->https://bazhan.wang/
+
 
 
 

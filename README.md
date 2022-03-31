@@ -67,4 +67,107 @@ get all static web page
 
 ![changed](https://user-images.githubusercontent.com/22612129/161009703-75f97496-e8bc-4141-8cbc-5fa79fb31608.png)
 
+package main
+
+import (
+	"fmt"
+	"image"
+	"image/color"
+	"image/draw"
+	"image/png"
+	_ "image/png"
+	"log"
+	"os"
+	"reflect"
+	"time"
+)
+
+// import (
+// 	"bufio"
+// 	"fmt"
+// 	"io"
+// 	"os"
+// 	"strings"
+// )
+
+// func main() {
+// 	f, err := os.Open("path.txt")
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	defer f.Close()
+// 	rd := bufio.NewReader(f)
+// 	for {
+// 		line, err := rd.ReadString('\n')
+
+// 		if err != nil || io.EOF == err {
+// 			break
+// 		}
+// 		stra := strings.Split(line, "\\")
+// 		strb := strings.Join(stra[2:len(stra)-1], "\\")
+// 		err = os.MkdirAll(strb, 0777)
+// 		if err != nil {
+// 			panic(err)
+// 		}
+// 		fmt.Println(strb)
+// 	}
+// }
+
+func microTime() float64 {
+	loc, _ := time.LoadLocation("UTC")
+	now := time.Now().In(loc)
+	micSeconds := float64(now.Nanosecond()) / 1000000000
+	return float64(now.Unix()) + micSeconds
+}
+
+type Img interface {
+	Set(x, y int, c color.Color)
+}
+
+func main() {
+	f, _ := os.Open("test.png")
+	g, _, err := image.Decode(f)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(g.At(0, 0).RGBA())
+	colorValue := reflect.ValueOf(g.At(0, 0))
+	count := colorValue.NumField()
+	for i := 0; i < count; i++ {
+		f := colorValue.Field(i)
+		fmt.Println(f.Uint())
+	}
+	for x := g.Bounds().Min.X; x < g.Bounds().Dx(); x++ {
+		for y := g.Bounds().Min.Y; y < g.Bounds().Dy(); y++ {
+			r, gg, a, alpha := g.At(x, y).RGBA()
+			if r == 43690 && gg == 43690 && a == 43690 && alpha == 65535 {
+				g.(Img).Set(x, y, color.RGBA{0, 0, 0, 1})
+			}
+		}
+	}
+	fmt.Println(g.At(0, 0).RGBA())
+	colorValue = reflect.ValueOf(g.At(0, 0))
+	count = colorValue.NumField()
+	for i := 0; i < count; i++ {
+		f := colorValue.Field(i)
+		fmt.Println(f.Uint())
+	}
+	img := image.NewRGBA(g.Bounds())
+	img.ColorModel().Convert(color.RGBA{})
+	draw.Draw(img, g.Bounds(), g, image.Pt(0, 0), draw.Over)
+	outFile, err := os.Create("changed.png")
+
+	if err != nil {
+
+		log.Fatal(err)
+
+	}
+
+	defer outFile.Close()
+
+	png.Encode(outFile, img)
+
+}
+
+
 

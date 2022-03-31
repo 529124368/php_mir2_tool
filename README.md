@@ -63,6 +63,7 @@ get all static web page
 
 
 
-![(00)-D02-F000](https://user-images.githubusercontent.com/22612129/160961154-0b5878a3-fed9-422e-bbef-0e6a9abbb339.png)
+![(00)-D02-F000](https://user-images.githubusercontent.com/22612129/160961220-4af125ba-6059-4124-a2c4-2d70d0b9e70c.png)
+
 
 

@@ -178,3 +178,9 @@ ebitenmobile bind -target android -javapkg golang.diablo2.mobile  -o mobile.aar 
 国内情况下设置如下代理
 $ export GOPROXY=https://goproxy.cn
 
+//防火墙添加端口
+firewall-cmd --permanent --zone=public --add-port=8083/tcp
+//加载配置
+firewall-cmd --reload
+//启动防火墙
+systemctl start firewalld.service 

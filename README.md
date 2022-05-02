@@ -171,6 +171,10 @@ func main() {
 
 //golang 打包apk
 
-执行下面的命令  切记在gopath模式下（要关掉gomod）安装ndk 1.9（版本高了低了都不行）
+执行下面的命令  安装ndk 1.9（版本高了低了都不行）
 ebitenmobile bind -target android -javapkg golang.diablo2.mobile  -o mobile.aar .\mobile\
+
+
+国内情况下设置如下代理
+$ export GOPROXY=https://goproxy.cn
 

@@ -184,3 +184,6 @@ firewall-cmd --permanent --zone=public --add-port=8083/tcp
 firewall-cmd --reload
 //启动防火墙
 systemctl start firewalld.service 
+
+golang GMP
+https://learnku.com/articles/41728

@@ -187,3 +187,5 @@ systemctl start firewalld.service
 
 golang GMP
 https://learnku.com/articles/41728
+
+https://www.deviantart.com/flvck0/art/Barbarian-Diablo-II-Resurrected-898722628

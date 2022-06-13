@@ -192,3 +192,5 @@ https://www.deviantart.com/flvck0/art/Barbarian-Diablo-II-Resurrected-898722628
 
 //下面的命令可以不显示console信息框
 go build -ldflags "-s -w -H=windowsgui"
+
+boltdb  molebox  setNX antlr

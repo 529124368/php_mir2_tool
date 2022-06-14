@@ -1,3 +1,158 @@
+<html>
+<head><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <style>
+    .slide-items {
+  width: 100%;
+  display: flex;
+  max-width: 80%;
+  margin: auto;
+}
+
+.slide-items li {
+  height: auto;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.slide-items img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+.progress {
+  display: block;
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  
+  background-color: #f5f5f5;
+  background-image: linear-gradient(to right, black, black);
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  
+  transition: background-size .4s ease-in-out;
+}
+  </style>
+</head>
+  <ul class="slide-items">
+    <li><img src="C:\Users\Administrator\Desktop\img\www.gif" alt=""></li>
+    <li><img src="C:\Users\Administrator\Desktop\img\www.gif" alt=""></li>
+    <li><img src="C:\Users\Administrator\Desktop\img\www.gif" alt=""></li>
+    <li><img src="C:\Users\Administrator\Desktop\img\www.gif" alt=""></li>
+    <li><img src="C:\Users\Administrator\Desktop\img\www.gif" alt=""></li>
+    <li><img src="C:\Users\Administrator\Desktop\img\www.gif" alt=""></li>
+    <li><img src="C:\Users\Administrator\Desktop\img\www.gif" alt=""></li>
+    <li><img src="C:\Users\Administrator\Desktop\img\www.gif" alt=""></li>
+  </ul>
+  <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+    <span class="slider__label sr-only">
+  </div>
+  <script>
+ 
+
+$(document).ready(function() {
+  var $slider = $('.slide-items');
+  var $progressBar = $('.progress');
+  var $progressBarLabel = $( '.slider__label' );
+  
+  $slider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {   
+    var calc = ( (nextSlide) / (slick.slideCount-1) ) * 100;
+    
+    $progressBar
+      .css('background-size', calc + '% 100%')
+      .attr('aria-valuenow', calc );
+    
+    $progressBarLabel.text( calc + '% completed' );
+  });
+  
+  $(".slide-items").slick({
+    autoplay:true,
+    slidesToShow:4, //显示几个
+    infinite:true,
+    slidesToScroll:1,  //一次移动几个
+   // dots: true, //是否显示下面的点
+    arrows:true, //是否显示左右按钮
+    // dotsClass: 'slider-dots',
+    responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+  
+});
+// $('.slide-items').slick({
+//   autoplay:true,
+//   centerMode: true,
+//   centerPadding: '60px',
+//   dots: true,
+//   slidesToShow: 3,
+//   slidesToScroll:1,
+//   responsive: [
+//     {
+//       breakpoint: 768,
+//       settings: {
+//         arrows: false,
+//         centerMode: true,
+//         centerPadding: '40px',
+//         slidesToShow: 3
+//       }
+//     },
+//     {
+//       breakpoint: 480,
+//       settings: {
+//         arrows: false,
+//         centerMode: true,
+//         centerPadding: '40px',
+//         slidesToShow: 1
+//       }
+//     }
+//   ]
+// });
+</script>
+</html>
+
+
 传奇素材
 
 用PHP进行进行批量修改图片素材名字。

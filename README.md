@@ -367,5 +367,17 @@ https://www.deviantart.com/flvck0/art/Barbarian-Diablo-II-Resurrected-898722628
 
 //下面的命令可以不显示console信息框
 go build -ldflags "-s -w -H=windowsgui"
+//在Windows平台，强行弹出DOS窗口执行命令行：
+cmdLine := pscp -pw pwd local_filename user@host:/home/workspace   
+cmd := exec.Command("cmd.exe", "/c", "start " + cmdLine)
+err := cmd.Run()
+fmt.Printf("%s, error:%v \n", cmdLine, err)
+//运行时隐藏cmd窗口
+go build -ldflags -H=windowsgui
+//Windows平台上，执行系统命令隐藏cmd窗口
+cmd := exec.Command("sth")
+ if runtime.GOOS == "windows" {
+     cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
+ }
+ err := cmd.Run()
 
-boltdb  molebox  setNX antlr

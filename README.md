@@ -383,3 +383,5 @@ cmd := exec.Command("sth")
 
 Goで標準出力をキャプチャする
 //https://journal.lampetty.net/entry/capturing-stdout-in-golang
+
+//https://tokoik.github.io/gg/

@@ -381,3 +381,5 @@ cmd := exec.Command("sth")
  }
  err := cmd.Run()
 
+Goで標準出力をキャプチャする
+//https://journal.lampetty.net/entry/capturing-stdout-in-golang
